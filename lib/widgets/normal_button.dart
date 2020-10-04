@@ -9,6 +9,9 @@ class NormalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      color: Color(0xFF3DFA28),
+      disabledColor: Color(0xFF71FBF8),
+      focusColor: Color(0xFF20C719),
       child: Text(name),
       onPressed: isActive ? null : onPress,
     );

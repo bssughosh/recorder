@@ -15,7 +15,7 @@ class _RecordingPageState extends State<RecordingPage> {
   Widget build(BuildContext context) {
     return Center(
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           NormalButton(
             name: 'Start Recording',
