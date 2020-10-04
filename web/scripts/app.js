@@ -11,6 +11,13 @@ var recorder;
 
 function stopRecordingCallback() {
     var blob = recorder.getBlob();
+    // var storageRef = firebase.storage().ref();
+
+    // var file = blob
+    // storageRef.put(file).then(function (snapshot) {
+    //     console.log('Uploaded a blob or file!');
+    // });
+
     invokeSaveAsDialog(blob, 'video.webm');
 }
 
@@ -31,23 +38,3 @@ function startRecord() {
 function stopRecord() {
     recorder.stopRecording(stopRecordingCallback);
 }
-// function startRecord() {
-//     navigator.mediaDevices.getUserMedia({
-//         video: true,
-//         audio: true
-//     }).then(async function (stream) {
-//         recorder = RecordRTC(stream, {
-//             type: 'video',
-//             mimeType: 'video/webm;codecs=h264',
-
-//         });
-//         recorder.startRecording();
-//     });
-// }
-
-// function stopRecord() {
-//     recorder.stopRecording(function () {
-//         let blob = recorder.getBlob();
-//         invokeSaveAsDialog(blob, 'video.webm');
-//     });
-// }
