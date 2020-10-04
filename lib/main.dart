@@ -6,25 +6,26 @@ void main() {
   runApp(MyApp());
 }
 
+/// Initialize Firebase
+/// If there is any error, a text containing error message is displayed
+/// If the connection is successfully established, page2.dart is loaded
+/// If the connection is being established, A Circular Progress Indicator is displayed
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      // Initialize FlutterFire:
       future: _initialization,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text(snapshot.error.toString());
         }
 
-        // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return Page2();
         }
 
-        // Otherwise, show something whilst waiting for initialization to complete
         return CircularProgressIndicator();
       },
     );

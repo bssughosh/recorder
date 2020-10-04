@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Button Widget which can be reused multiple times in the application
 class NormalButton extends StatelessWidget {
   final String name;
   final Function onPress;
