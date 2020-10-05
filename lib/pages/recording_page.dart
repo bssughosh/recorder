@@ -26,6 +26,7 @@ class _RecordingPageState extends State<RecordingPage> {
               name: 'Start Recording',
               onPress: _startRecording,
               isActive: startActive,
+              icon: Icon(Icons.play_arrow_rounded),
             ),
             SizedBox(
               width: 15,
@@ -34,6 +35,7 @@ class _RecordingPageState extends State<RecordingPage> {
               name: 'Stop Recording',
               onPress: _stopRecording,
               isActive: stopActive,
+              icon: Icon(Icons.stop_rounded),
             ),
           ],
         ),

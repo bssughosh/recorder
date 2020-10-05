@@ -5,16 +5,22 @@ class NormalButton extends StatelessWidget {
   final String name;
   final Function onPress;
   final bool isActive;
-  NormalButton({this.name, this.onPress, this.isActive});
+  final Icon icon;
+  NormalButton({this.name, this.onPress, this.isActive, this.icon});
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return RaisedButton.icon(
       color: Color(0xFF3DFA28),
       disabledColor: Color(0xFF71FBF8),
       focusColor: Color(0xFF20C719),
-      child: Text(name),
+      label: Text(name),
+      icon: icon,
       onPressed: isActive ? null : onPress,
     );
+  }
+
+  bool isEnabled() {
+    return !(isActive);
   }
 }
