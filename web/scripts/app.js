@@ -11,14 +11,18 @@ var recorder;
 
 function stopRecordingCallback() {
     var blob = recorder.getBlob();
-    // var storageRef = firebase.storage().ref();
+    var file = new File([blob], `video_${Date.now()}.webm`, {
+        type: 'video/webm'
+    });
+    if (confirm("Do you want to save to Firebase?") == true) {
+        var storageRef = firebase.storage().ref();
 
-    // var file = blob
-    // storageRef.put(file).then(function (snapshot) {
-    //     console.log('Uploaded a blob or file!');
-    // });
-
-    invokeSaveAsDialog(blob, 'video.webm');
+        storageRef.child(file.name).put(file).then(function (snapshot) {
+            alert('Uploaded video file to Firebase');
+        });
+    } else {
+        invokeSaveAsDialog(blob, `video_${Date.now()}.webm`);
+    }
 }
 
 
